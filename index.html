@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Circ — Revised Engagement Proposal | Constellation</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #173F3F;
+      --orange:     #FE6E36;
+      --black:      #1B1C21;
+      --darkbg:     #160C15;
+      --white:      #FFFFFF;
+      --text-light: rgba(255,255,255,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    em { font-style: normal; color: var(--orange); }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(27,28,33,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    nav img { height: 26px; }
+
+    .nav-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 2.5rem 6rem;
+      overflow: hidden;
+      background: var(--darkbg);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 30% 60%, rgba(23,63,63,0.9) 0%, rgba(22,12,21,0.95) 60%);
+    }
+
+    .hero-clouds {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-ellipse {
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 60vw;
+      height: 60vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(254,110,54,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-astronaut {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 90vh;
+      max-height: 700px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .eyebrow span {
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    h1 {
+      font-size: clamp(4rem, 9vw, 8rem);
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 3rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-meta-item value {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* INTRO STRIP */
+    .intro-strip {
+      background: var(--orange);
+      padding: 3rem 2.5rem;
+    }
+
+    .intro-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .big-num {
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      color: var(--white);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .intro-strip p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+    }
+
+    /* SECTIONS */
+    .section { padding: 7rem 2.5rem; }
+    .section--dark { background: var(--black); }
+    .section--alt { background: rgba(23,63,63,0.12); }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    /* GRIDS */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+    /* CHALLENGE CARDS */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .challenge-item {
+      padding: 1.75rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .challenge-item .icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .challenge-item .icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .challenge-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      color: var(--white);
+    }
+
+    .challenge-item p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* TIMELINE / ROADMAP */
+    .timeline { margin-top: 4rem; }
+
+    .timeline-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .timeline-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-body h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-body p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .weeks {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.07);
+      color: var(--text-light);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .tag--orange {
+      background: rgba(254,110,54,0.15);
+      color: var(--orange);
+      border-color: rgba(254,110,54,0.3);
+    }
+
+    /* CARE PLAN SECTION */
+    .care-plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .care-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(23,63,63,0.2);
+      border: 1px solid rgba(23,63,63,0.5);
+    }
+
+    .care-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .care-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .care-item h4 {
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .care-item p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.09);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(254,110,54,0.3);
+    }
+
+    .pricing-card.recommended {
+      border-color: var(--orange);
+      background: rgba(254,110,54,0.05);
+      position: relative;
+    }
+
+    .recommended-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .pricing-card-head {
+      padding: 2rem 1.75rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pricing-tier-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card-head h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .price-amount {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .price-total {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+    }
+
+    .pricing-card-body {
+      padding: 1.5rem 1.75rem;
+      flex: 1;
+    }
+
+    .pricing-card-body p.best-for {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .feature-list { list-style: none; }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list li::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FE6E36' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .feature-list li.hours-highlight {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .pricing-note {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+    }
+
+    /* FEATURE TABLE */
+    .feature-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+    }
+
+    .feature-table th {
+      text-align: left;
+      padding: 0.85rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-light);
+      vertical-align: top;
+    }
+
+    .feature-table td:first-child { color: var(--white); font-weight: 500; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .badge--included { background: rgba(23,63,63,0.6); color: #7fffd4; border: 1px solid rgba(127,255,212,0.2); }
+    .badge--not { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.08); }
+
+    /* RISK TABLE */
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-size: 0.88rem;
+    }
+
+    .risk-table th {
+      text-align: left;
+      padding: 0.85rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .risk-table td {
+      padding: 1.1rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-light);
+      vertical-align: top;
+    }
+
+    .risk-table td:first-child { color: var(--white); font-weight: 500; }
+
+    .risk-level {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .risk-level--low { background: rgba(23,200,100,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+    .risk-level--med { background: rgba(254,110,54,0.12); color: var(--orange); border: 1px solid rgba(254,110,54,0.25); }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+      margin: 0 2.5rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--darkbg);
+      padding: 6rem 2.5rem;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 60%, rgba(23,63,63,0.85) 0%, rgba(22,12,21,0.97) 70%);
+    }
+
+    .cta-clouds {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+
+    .cta-astronaut {
+      position: absolute;
+      right: -2%;
+      bottom: 0;
+      height: 80vh;
+      max-height: 580px;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin: 1rem 0 1.25rem;
+    }
+
+    .cta-content p {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-item p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+      padding-top: 0.35rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    footer img { height: 22px; opacity: 0.6; }
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 768px) {
+      .grid-2, .challenge-grid, .care-plan-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .intro-strip-inner { flex-direction: column; gap: 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .section { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="assets/logo-white.svg" alt="Constellation" />
+    <span class="nav-tag">Confidential Proposal</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img src="assets/clouds.webp" class="hero-clouds" alt="" />
+    <div class="hero-ellipse"></div>
+    <img src="assets/astronaut.png" class="hero-astronaut" alt="" />
+    <div class="hero-content">
+      <div class="eyebrow"><span></span> Druce Digital x Constellation <span></span></div>
+      <h1>Aurora<br /><em>Circ.</em></h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <label>Client</label>
+          <value>Aurora Circ</value>
+        </div>
+        <div class="hero-meta-item">
+          <label>Via</label>
+          <value>Druce Digital</value>
+        </div>
+        <div class="hero-meta-item">
+          <label>Platform</label>
+          <value>Shopify</value>
+        </div>
+        <div class="hero-meta-item">
+          <label>Engagement</label>
+          <value>6-Month Retainer</value>
+        </div>
+        <div class="hero-meta-item">
+          <label>Date</label>
+          <value>April 2026</value>
+        </div>
+        <div class="hero-meta-item">
+          <label>Prepared by</label>
+          <value>Aldo Calitz, Constellation</value>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <div class="intro-strip-inner">
+      <div class="big-num">6mo</div>
+      <p>Following our conversation with Lisa and the team, this proposal has been restructured to reflect Aurora's immediate priorities and budget. The focus is the main auroracirc.com site — fixing the foundation so the business can grow on solid ground.</p>
+    </div>
+  </div>
+
+  <!-- 01 CONTEXT -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-label">01 — Context</div>
+      <div class="grid-2">
+        <div>
+          <h2>The main site is leaving revenue on the table.</h2>
+        </div>
+        <div>
+          <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Aurora Circ is the only online marketplace in America for premium pre-owned luxury kitchens. The inventory is exceptional — Wolf, Sub-Zero, Poggenpohl, Eggersmann — but the site is not yet built to communicate that depth or convert the high-intent buyers who are actively searching for it.</p>
+          <p style="color: var(--text-light); font-size: 0.95rem;">Three core problems were identified on our call. This engagement addresses all three over six months.</p>
+        </div>
+      </div>
+      <div class="challenge-grid" style="margin-top: 3.5rem;">
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h4>Visibility gap</h4>
+          <p>A hyper-theme migration resulted in thousands of 404 errors and broken redirects that are actively suppressing organic rankings for high-intent brand searches like Poggenpohl or Sub-Zero.</p>
+        </div>
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Conversion gap</h4>
+          <p>New visitors are not funnelled effectively. The site doesn't communicate what Aurora is, what makes it different, or how to buy. Appliance inventory converts on eBay because that platform carries the trust signals the main site lacks.</p>
+        </div>
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h4>Inventory depth gap</h4>
+          <p>Aurora is a Wolf powerhouse. That is not communicated. The site reads as a flat e-commerce store rather than a luxury marketplace with genuine depth, curation, and brand authority.</p>
+        </div>
+        <div class="challenge-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>No dedicated technical partner</h4>
+          <p>Aurora currently has no ongoing technical relationship. Bug fixes, theme updates, and performance issues have no single point of accountability. This engagement changes that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 02 APPROACH -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-label">02 — Approach</div>
+      <div class="grid-2">
+        <div>
+          <h2>Fix the foundation. Then scale.</h2>
+        </div>
+        <div>
+          <p style="color: var(--text-light); font-size: 0.95rem;">Rather than building outward before the core is solid, this 6-month engagement is structured as a systematic improvement programme. Each month builds on the last. Milan's internal site knowledge is a key asset from day one.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">01</div>
+          <div class="timeline-body">
+            <div class="weeks">Month 1 — 2</div>
+            <h3>Technical Foundation</h3>
+            <p>Full 404 error audit and redirect mapping. Shopify SEO architecture review and structural fixes. Performance and Core Web Vitals baseline established. Milan integrated as internal collaborator — his historical site knowledge is essential in this phase. Druce Digital briefed on findings.</p>
+            <div class="timeline-tags">
+              <span class="tag">404 audit</span>
+              <span class="tag">Redirect mapping</span>
+              <span class="tag">SEO architecture</span>
+              <span class="tag">Core Web Vitals</span>
+              <span class="tag tag--orange">Milan onboarding</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">02</div>
+          <div class="timeline-body">
+            <div class="weeks">Month 2 — 3</div>
+            <h3>Conversion Architecture</h3>
+            <p>Homepage and collection page restructure to communicate inventory depth and brand authority. New visitor funnelling redesigned. Appliance conversion pathway improved with trust signals, bundling logic, and clear CTAs. Premium aesthetics applied to build confidence with high-value buyers.</p>
+            <div class="timeline-tags">
+              <span class="tag">Homepage restructure</span>
+              <span class="tag">Collection pages</span>
+              <span class="tag">Trust signals</span>
+              <span class="tag">Appliance CTAs</span>
+              <span class="tag tag--orange">Premium aesthetics</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">03</div>
+          <div class="timeline-body">
+            <div class="weeks">Month 3 — 6</div>
+            <h3>Optimise and Expand</h3>
+            <p>Ongoing performance monitoring, content iteration, and UX improvements based on live data. Monthly roadmap sessions with Aldo and Ashleigh. Inventory depth messaging refined. Partner subdomain programme reviewed and scoped once the main site is stable.</p>
+            <div class="timeline-tags">
+              <span class="tag">Performance monitoring</span>
+              <span class="tag">UX iteration</span>
+              <span class="tag">Inventory messaging</span>
+              <span class="tag">Monthly roadmap</span>
+              <span class="tag tag--orange">Subdomain review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 03 CARE PLAN -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-label">03 — Care Plan</div>
+      <div class="grid-2">
+        <div>
+          <h2>Every tier includes the Constellation Care Plan as standard.</h2>
+        </div>
+        <div>
+          <p style="color: var(--text-light); font-size: 0.95rem;">The Care Plan is Constellation's baseline maintenance and monitoring SLA. It means the work we do is never at risk — every change is backed by uptime monitoring, security coverage, and a named point of contact available through your preferred channel.</p>
+        </div>
+      </div>
+      <div class="care-plan-grid">
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div>
+            <h4>24/7 uptime monitoring</h4>
+            <p>Automated alerts if the site goes down. You hear about it before your customers do.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <h4>Security patches and updates</h4>
+            <p>Plugin, theme, and dependency updates applied on a regular cycle. No exposure window.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div>
+            <h4>Monthly encrypted backups</h4>
+            <p>Full site backup with restore verification every month. Your data is always recoverable.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <h4>4-hour critical response</h4>
+            <p>Critical issues acknowledged and triaged within 4 business hours. Standard requests within 48 hours.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div>
+            <h4>Monthly health report</h4>
+            <p>Delivered to your inbox every month. Performance metrics, work completed, and next priorities.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div>
+            <h4>Dedicated communication channel</h4>
+            <p>Slack or WhatsApp — Aurora's preference. A named Constellation point of contact throughout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 04 INVESTMENT -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-label">04 — Investment</div>
+      <div class="grid-2" style="margin-bottom: 0.5rem;">
+        <div>
+          <h2>Three tiers. One recommendation.</h2>
+        </div>
+        <div>
+          <p style="color: var(--text-light); font-size: 0.95rem;">All tiers include the full Constellation Care Plan. Development hours above the Care Plan are applied to the priority work areas: SEO architecture, conversion improvements, technical fixes, and UX enhancements. All amounts in USD. 6-month minimum commitment.</p>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- TIER 1 -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <div class="pricing-tier-label">Tier 1</div>
+            <h4>Foundation</h4>
+            <div class="price-amount">$1,000 <span class="price-period">/ mo</span></div>
+            <div class="price-total">6-month total: $6,000</div>
+          </div>
+          <div class="pricing-card-body">
+            <p class="best-for">Best for getting the technical house in order with a lean monthly commitment.</p>
+            <ul class="feature-list">
+              <li>Full Constellation Care Plan</li>
+              <li class="hours-highlight">6 hours dedicated development / month</li>
+              <li>404 audit and redirect mapping (Month 1 priority)</li>
+              <li>SEO architecture fixes applied incrementally</li>
+              <li>Monthly progress report</li>
+              <li>Dedicated communication channel</li>
+              <li>Named Constellation point of contact</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TIER 2 RECOMMENDED -->
+        <div class="pricing-card recommended">
+          <div class="recommended-badge">Recommended</div>
+          <div class="pricing-card-head">
+            <div class="pricing-tier-label">Tier 2</div>
+            <h4>Growth</h4>
+            <div class="price-amount">$1,500 <span class="price-period">/ mo</span></div>
+            <div class="price-total">6-month total: $9,000</div>
+          </div>
+          <div class="pricing-card-body">
+            <p class="best-for">Meaningful momentum. Enough hours to fix the foundation and begin conversion improvements simultaneously.</p>
+            <ul class="feature-list">
+              <li>Full Constellation Care Plan</li>
+              <li class="hours-highlight">12 hours dedicated development / month</li>
+              <li>Everything in Tier 1</li>
+              <li>Conversion funnel restructure (homepage, collections, appliance pages)</li>
+              <li>Inventory depth and brand authority improvements</li>
+              <li>Quarterly roadmap session with Aldo and Ashleigh</li>
+              <li>Milan collaboration integrated from Month 1</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <div class="pricing-tier-label">Tier 3</div>
+            <h4>Scale</h4>
+            <div class="price-amount">$2,000 <span class="price-period">/ mo</span></div>
+            <div class="price-total">6-month total: $12,000</div>
+          </div>
+          <div class="pricing-card-body">
+            <p class="best-for">Maximum output across all priority areas in parallel. Fastest path to a fully optimised site.</p>
+            <ul class="feature-list">
+              <li>Full Constellation Care Plan</li>
+              <li class="hours-highlight">24 hours dedicated development / month</li>
+              <li>Everything in Tier 2</li>
+              <li>Full UX redesign of key pages (homepage, product pages, appliance category)</li>
+              <li>Premium aesthetics and trust signal implementation</li>
+              <li>Monthly strategy session</li>
+              <li>Partner subdomain programme scoped and initiated in Month 4</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="pricing-note">All amounts are in USD. Exclusive of applicable taxes. Minimum 6-month commitment, monthly rolling thereafter. Pricing reviewed at the 6-month mark. A 50% deposit is required to commence work, with the balance billed monthly in advance. Development hours not used within a calendar month are forfeited. Shopify subscription fees, third-party app costs, and domain registration fees are excluded and remain Aurora's responsibility.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 05 OUT OF SCOPE -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-label">05 — Out of Scope</div>
+      <h2 style="margin-bottom: 2rem;">What this proposal does not cover.</h2>
+      <table class="feature-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full new website builds or platform migrations</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>A complete platform rebuild is a separate engagement. Current engagement optimises the existing Shopify setup.</td>
+          </tr>
+          <tr>
+            <td>Copywriting and product photography</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>All copy for landing pages, product descriptions, and creative assets must be provided by Aurora or partner brands.</td>
+          </tr>
+          <tr>
+            <td>Custom Shopify app development</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Any functionality requiring a custom Shopify app or complex API integration beyond the existing stack is scoped separately.</td>
+          </tr>
+          <tr>
+            <td>Paid advertising management</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Campaign strategy and ad management are outside this scope. Handled by Druce Digital's marketing team.</td>
+          </tr>
+          <tr>
+            <td>Email marketing programme management</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Email strategy, campaign creation, and list management are outside this scope.</td>
+          </tr>
+          <tr>
+            <td>Partner subdomain builds</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Scoped separately once the main site is stable. Reviewed at the Month 4 mark on Tier 3, or at the 6-month mark on Tiers 1 and 2.</td>
+          </tr>
+          <tr>
+            <td>SEO strategy and content marketing</td>
+            <td><span class="badge badge--not">Not included</span></td>
+            <td>Technical SEO fundamentals are applied during the engagement. Active SEO strategy and content production are managed by Druce Digital.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 06 WHAT WE NEED -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-label">06 — What We Need From You</div>
+      <div class="grid-2">
+        <div>
+          <h2>Before we begin.</h2>
+        </div>
+        <div>
+          <p style="color: var(--text-light); font-size: 0.95rem;">To kick off on time and move fast in Month 1, we need the following from Aurora before the start date.</p>
+        </div>
+      </div>
+      <div class="timeline" style="margin-top: 3rem;">
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: rgba(255,255,255,0.08); color: var(--orange); border: 2px solid var(--orange);">01</div>
+          <div class="timeline-body">
+            <h3>Shopify admin access</h3>
+            <p>Development-level permissions granted to Constellation. Required for theme access, redirect configuration, and performance work.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: rgba(255,255,255,0.08); color: var(--orange); border: 2px solid var(--orange);">02</div>
+          <div class="timeline-body">
+            <h3>Introduction to Milan</h3>
+            <p>A 30-minute knowledge transfer session with Milan. His historical context on the site — the theme migration, the 404s, what was changed and when — is essential for the audit.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: rgba(255,255,255,0.08); color: var(--orange); border: 2px solid var(--orange);">03</div>
+          <div class="timeline-body">
+            <h3>Analytics access</h3>
+            <p>Google Search Console and GA4 access. Critical for the SEO audit and establishing the performance baseline we'll measure against.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background: rgba(255,255,255,0.08); color: var(--orange); border: 2px solid var(--orange);">04</div>
+          <div class="timeline-body">
+            <h3>Communication channel preference</h3>
+            <p>Confirm whether Aurora prefers Slack or WhatsApp for the dedicated project channel. Constellation sets this up before kick-off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 07 RISK MANAGEMENT -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-label">07 — Risk Management</div>
+      <h2 style="margin-bottom: 0.75rem;">Known risks and how we manage them.</h2>
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>Risk</th>
+            <th>Likelihood</th>
+            <th>Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content delays from Aurora or partner brands</td>
+            <td><span class="risk-level risk-level--med">Medium</span></td>
+            <td>A content checklist is provided at project kick-off with a defined submission deadline. If content is not received within 5 business days, the delivery milestone adjusts accordingly. Constellation is not liable for delays caused by late content delivery.</td>
+          </tr>
+          <tr>
+            <td>Scope expansion on development hours</td>
+            <td><span class="risk-level risk-level--med">Medium</span></td>
+            <td>The monthly development hour allocation is fixed per tier. Any work beyond the monthly cap is flagged before it commences and quoted at the agreed rate. No out-of-scope work begins without written approval.</td>
+          </tr>
+          <tr>
+            <td>Shopify theme conflicts during SEO fixes</td>
+            <td><span class="risk-level risk-level--low">Low</span></td>
+            <td>All structural changes are tested in a development environment before being deployed to the live site. QA is completed before any change goes live.</td>
+          </tr>
+          <tr>
+            <td>Access delays (Shopify, Search Console, GA4)</td>
+            <td><span class="risk-level risk-level--low">Low</span></td>
+            <td>Access is requested at kick-off, not at the start of each task. If access is delayed, audit and planning work proceeds independently and is applied on access confirmation.</td>
+          </tr>
+          <tr>
+            <td>Retainer scope creep over time</td>
+            <td><span class="risk-level risk-level--med">Medium</span></td>
+            <td>Monthly usage is tracked and reported transparently in the health report. Work beyond the monthly hour cap is flagged before it is commenced and quoted separately. No surprises.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA / NEXT STEPS -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <img src="assets/clouds.webp" class="cta-clouds" alt="" />
+    <img src="assets/astronaut.png" class="cta-astronaut" alt="" />
+    <div class="cta-content">
+      <div class="eyebrow" style="justify-content: center;"><span></span> Next Steps <span></span></div>
+      <h2>Ready to fix the<br /><em>foundation.</em></h2>
+      <p>Three steps to get started with Druce Digital and Constellation.</p>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <p>Select your preferred tier and confirm the 6-month engagement with Ashleigh and the Druce Digital team.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <p>Submit the 50% deposit for Month 1 and grant Shopify admin access plus Google Search Console and GA4 permissions.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <p>Constellation schedules the kick-off call with Aldo, Ashleigh, and Milan. The 404 audit and redirect mapping begins in Week 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="assets/logo-white.svg" alt="Constellation" />
+      <p>Prepared by Druce Digital in partnership with Constellation &mdash; uxconstellation.com</p>
+      <p>Confidential. April 2026.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
